@@ -96,12 +96,12 @@ st.write('Input values to predict probability of Diabetes')
 x_train, x_test, y_train, y_test = train_test_split(pima[options], pima['Outcome'], test_size=0.2, random_state=0)
 
 scaler = StandardScaler()
-x_train = scaler.fit_transform(x_train)
+x_train = scaler.fit_transform(x_train.values)
 
 model = LogisticRegression(solver='liblinear', C=0.05, multi_class='ovr',random_state=0)
-model.fit(x_train, y_train)
+model.fit(x_train, y_train.values)
 
-x_test = scaler.transform(x_test)
+x_test = scaler.transform(x_test.values)
 y_pred = model.predict(x_test)
 
 accuracy = round((model.score(x_train, y_train)+model.score(x_test, y_test))/2,3)
