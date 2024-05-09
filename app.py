@@ -90,7 +90,7 @@ with col2:
     st.write('Variables include:')
     st.write(options)
 
-st.subheader('Use model to make predict')
+st.subheader('Use model to predict')
 st.write('Input values to predict probability of Diabetes')
 
 x_train, x_test, y_train, y_test = train_test_split(pima[options], pima['Outcome'], test_size=0.2, random_state=0)
